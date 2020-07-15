@@ -40,26 +40,26 @@ body {
     div.image {
         position: absolute;
         left: 50%;
-        transform: translateX(-175px);
+        transform: translateX(-200px);
     
-        width: 350px;
-        height: 350px;
+        width: 400px;
+        height: 400px;
     
         overflow: hidden;
     
         z-index: 1;
     
         img { 
-            width: 350px;
-            height: 350px;
+            width: 400px;
+            height: 400px;
     
             object-fit: cover;
         }
     }
 
     > img {
-        width: 350px;
-        height: 350px;
+        width: 400px;
+        height: 400px;
 
         object-fit: cover;
 
@@ -71,8 +71,8 @@ body {
         -webkit-appearance: none;
         outline: none;
 
-        width: 365px;
-        transform: translateY(175px);
+        width: 415px;
+        transform: translateY(200px);
     
         z-index: 1;
 
@@ -92,6 +92,32 @@ body {
 
         &::-webkit-slider-runnable-track {
             height: 0;
+        }
+    }
+}
+
+@media(max-width: 480px) {
+    #page {
+        div.image {
+            transform: translateX(-175px);
+    
+            width: 350px;
+            height: 350px;
+
+            img {
+                width: 350px;
+                height: 350px;
+            }
+        }
+
+        > img {
+            width: 350px;
+            height: 350px;    
+        }
+
+        input[type=range] {
+            width: 365px;
+            transform: translateY(175px);
         }
     }
 }
