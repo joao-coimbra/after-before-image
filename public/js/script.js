@@ -5,14 +5,16 @@ let $range = document.querySelector('input'),
 
 function widthConfig($value) {
 
-    let $size = $value * $range.value / 100;
+    let $size = $value * $range.value / 1000;
 
     $imgBox.style.width = `${$size}px`;
 
 }
 
 function verifyWidth() {
-    if (window.innerWidth <= 480) {
+    if (window.innerWidth <= 300) {
+        widthConfig(200);
+    } else if (window.innerWidth <= 480) {
         widthConfig(350);
     } else {
         widthConfig(400);

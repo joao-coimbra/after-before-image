@@ -6,23 +6,33 @@
 
 body {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
+  font-family: Ubuntu, sans-serif;
   background: -webkit-linear-gradient(top, #BC1888 0%, #CC2366 30%, #DC2743 65%, #E6683C 85%, #F09433 100%);
   background: -moz-linear-gradient(top, #BC1888 0%, #CC2366 30%, #DC2743 65%, #E6683C 85%, #F09433 100%);
   background: -o-linear-gradient(top, #BC1888 0%, #CC2366 30%, #DC2743 65%, #E6683C 85%, #F09433 100%);
   background: linear-gradient(top, #BC1888 0%, #CC2366 30%, #DC2743 65%, #E6683C 85%, #F09433 100%);
-  background-repeat: no-repeat;
 }
 
-#page {
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 400px;
+  margin-bottom: 10px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.page {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-#page div.image {
+.page div.image {
   position: absolute;
   left: 50%;
   transform: translateX(-200px);
@@ -31,54 +41,161 @@ body {
   overflow: hidden;
   z-index: 1;
 }
-#page div.image img {
+.page div.image img {
   width: 400px;
   height: 400px;
   object-fit: cover;
 }
-#page > img {
+.page > img {
   width: 400px;
   height: 400px;
   object-fit: cover;
   position: absolute;
 }
-#page input[type=range] {
+.page input[type=range] {
   -webkit-appearance: none;
   outline: none;
+  background: transparent;
   width: 415px;
-  transform: translateY(200px);
+  height: 400px;
   z-index: 1;
   cursor: pointer;
 }
-#page input[type=range]::-webkit-slider-thumb {
+.page input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
   background: white;
   height: 15px;
   width: 15px;
-  transform: rotate(45deg) translateY(-35%) translateX(-35%);
+  transform: rotate(45deg) translateY(910%) translateX(910%);
+  justify-content: unset;
   border-radius: 2px;
 }
-#page input[type=range]::-webkit-slider-runnable-track {
+.page input[type=range]::-webkit-slider-runnable-track {
   height: 0;
 }
 
+.info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 400px;
+  margin-top: 18px;
+}
+.info span {
+  display: flex;
+  width: 15px;
+  height: 15px;
+}
+.info span:nth-child(1) {
+  background-image: url("../assets/arrow-ios-back.svg");
+}
+.info span:nth-child(2) {
+  background-image: url("../assets/arrow-ios-forward.svg");
+}
+
+footer {
+  display: flex;
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+}
+footer a {
+  display: flex;
+  margin-left: 20px;
+  color: white;
+  text-decoration: none;
+}
+footer a span {
+  display: flex;
+  width: 20px;
+  height: 20px;
+  margin-right: 6px;
+}
+footer a:nth-child(1) span {
+  background-image: url("../assets/github.svg");
+}
+footer a:nth-child(2) span {
+  background-image: url("../assets/linkedin.svg");
+}
+footer a:nth-child(3) span {
+  background-image: url("../assets/codepen-icon.svg");
+}
+
 @media (max-width: 480px) {
-  #page div.image {
+  .box {
+    width: 350px;
+  }
+
+  .page div.image {
     transform: translateX(-175px);
     width: 350px;
     height: 350px;
   }
-  #page div.image img {
+  .page div.image img {
     width: 350px;
     height: 350px;
   }
-  #page > img {
+  .page > img {
     width: 350px;
     height: 350px;
   }
-  #page input[type=range] {
+  .page input[type=range] {
+    height: 350px;
     width: 365px;
-    transform: translateY(175px);
+  }
+  .page input[type=range]::-webkit-slider-thumb {
+    transform: rotate(45deg) translateY(790%) translateX(790%);
+  }
+
+  .info {
+    width: 350px;
+  }
+}
+@media (max-width: 1100px) {
+  footer {
+    bottom: 0;
+    right: 50%;
+    transform: translateX(47.5%);
+    margin: 10px 0;
+  }
+}
+@media (max-width: 300px) {
+  .box {
+    width: 200px;
+  }
+
+  .page div.image {
+    transform: translateX(-100px);
+    width: 200px;
+    height: 200px;
+  }
+  .page div.image img {
+    width: 200px;
+    height: 200px;
+  }
+  .page > img {
+    width: 200px;
+    height: 200px;
+  }
+  .page input[type=range] {
+    height: 200px;
+    width: 215px;
+  }
+  .page input[type=range]::-webkit-slider-thumb {
+    background: transparent;
+  }
+
+  .info {
+    width: 200px;
+  }
+
+  footer {
+    display: none;
+  }
+}
+@media (max-height: 520px) {
+  footer {
+    display: none;
   }
 }
 

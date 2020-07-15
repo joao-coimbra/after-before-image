@@ -21,17 +21,29 @@ $gradient: $color1 0%, $color2 30%, $color3 65%, $color4 85%, $color5 100%;
 
 body {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 
     height: 100vh;
+    font-family: Ubuntu, sans-serif;
 
     @include gradient(top, $gradient);
-
-    background-repeat: no-repeat;
 }
 
-#page {
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    
+    width: 400px;
+    margin-bottom: 10px;
+
+    color: rgba(255, 255, 255, .5);
+}
+
+.page {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -71,8 +83,9 @@ body {
         -webkit-appearance: none;
         outline: none;
 
+        background: transparent;
         width: 415px;
-        transform: translateY(200px);
+        height: 400px;
     
         z-index: 1;
 
@@ -84,7 +97,9 @@ body {
             height:15px;
             width: 15px;
 
-            transform: rotate(45deg) translateY(-35%) translateX(-35%);
+            transform: rotate(45deg) translateY(910%) translateX(910%);
+
+            justify-content: unset;
 
             border-radius: 2px;
 
@@ -96,8 +111,76 @@ body {
     }
 }
 
+.info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 400px;
+
+    margin-top: 18px;
+
+    span {
+        display: flex;
+
+        width: 15px;
+        height: 15px;
+
+        &:nth-child(1) {
+            background-image: url('../assets/arrow-ios-back.svg');
+        }
+        
+        &:nth-child(2) {
+            background-image: url('../assets/arrow-ios-forward.svg');
+        }
+    }
+}
+
+footer {
+    display: flex;
+
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+
+    a {
+        display: flex;
+
+        margin-left: 20px;
+
+        color: white;
+
+        text-decoration: none;
+
+        span {
+            display: flex;
+
+            width: 20px;
+            height: 20px;
+
+            margin-right: 6px;
+        }
+
+        &:nth-child(1) span {
+            background-image: url('../assets/github.svg');
+        }
+        
+        &:nth-child(2) span {
+            background-image: url('../assets/linkedin.svg');
+        }
+        
+        &:nth-child(3) span {
+            background-image: url('../assets/codepen-icon.svg');
+        }
+    }
+}
+
 @media(max-width: 480px) {
-    #page {
+    .box {
+        width: 350px;
+    }
+
+    .page {
         div.image {
             transform: translateX(-175px);
     
@@ -116,8 +199,74 @@ body {
         }
 
         input[type=range] {
+            height: 350px;
             width: 365px;
-            transform: translateY(175px);
+
+            &::-webkit-slider-thumb {
+                transform: rotate(45deg) translateY(790%) translateX(790%);
+            }
         }
+    }
+
+    .info {
+        width: 350px;
+    }
+}
+
+@media(max-width: 1100px) {
+    footer {
+        bottom: 0;
+        right: 50%;
+        transform: translateX(47.5%);
+
+        margin: 10px 0;
+    }
+}
+
+@media(max-width: 300px) {
+    .box {
+        width: 200px;
+    }
+
+    .page {
+        div.image {
+            transform: translateX(-100px);
+    
+            width: 200px;
+            height: 200px;
+
+            img {
+                width: 200px;
+                height: 200px;
+            }
+        }
+
+        > img {
+            width: 200px;
+            height: 200px;    
+        }
+
+        input[type=range] {
+            height: 200px;
+            width: 215px;
+
+            &::-webkit-slider-thumb {
+                background: transparent;
+            }
+        }
+    }
+
+    .info {
+        width: 200px;
+    }
+
+    footer {
+        display: none;
+    }
+}
+
+@media(max-height: 520px) {
+    footer {
+        display: none;
     }
 }
