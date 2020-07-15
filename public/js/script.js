@@ -12,7 +12,7 @@ function widthConfig($value) {
 }
 
 function verifyWidth() {
-    if (window.innerWidth <= 300) {
+    if (window.innerWidth <= 320) {
         widthConfig(200);
     } else if (window.innerWidth <= 480) {
         widthConfig(350);
