@@ -17,6 +17,8 @@ $gradient: $color1 0%, $color2 30%, $color3 65%, $color4 85%, $color5 100%;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
+    cursor: default;
 }
 
 body {
@@ -127,11 +129,11 @@ body {
         height: 15px;
 
         &:nth-child(1) {
-            background-image: url('../assets/arrow-ios-back.svg');
+            background-image: url('../assets/arrow-left.svg');
         }
         
         &:nth-child(2) {
-            background-image: url('../assets/arrow-ios-forward.svg');
+            background-image: url('../assets/arrow-right.svg');
         }
     }
 }
@@ -151,6 +153,8 @@ footer {
         color: white;
 
         text-decoration: none;
+
+        cursor: pointer;
 
         span {
             display: flex;
@@ -215,15 +219,14 @@ footer {
 
 @media(max-width: 1100px) {
     footer {
-        bottom: 0;
         right: 50%;
         transform: translateX(47.5%);
 
-        margin: 10px 0;
+        margin: 10px 0 0 0;
     }
 }
 
-@media(max-width: 300px) {
+@media(max-width: 320px) {
     .box {
         width: 200px;
     }
@@ -265,7 +268,7 @@ footer {
     }
 }
 
-@media(max-height: 520px) {
+@media(max-height: 560px) {
     footer {
         display: none;
     }
