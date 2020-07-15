@@ -7,9 +7,9 @@ function widthConfig() {
     $imgBox.style.width = `${$range.value}px`;
 }
 
-window.load(
-    widthConfig()
-)
+window.addEventListener('load', () => {
+    widthConfig();
+})
 
 addEventListenerAll(window, "load resize", () => {
     
