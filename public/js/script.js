@@ -3,24 +3,22 @@ import { addEventListenerAll } from './utilities.js';
 let $range = document.querySelector('input'),
     $imgBox = document.querySelector('.image');
 
-function widthConfig() {
-    $imgBox.style.width = `${$range.value}px`;
+function widthConfig($value) {
+
+    let $size = $value * $range.value / 100;
+
+    $imgBox.style.width = `${$size}px`;
+
 }
 
-window.addEventListener('load', () => {
-    widthConfig();
-})
-
-addEventListenerAll(window, "load resize", () => {
-    
+function verifyWidth() {
     if (window.innerWidth <= 480) {
-        $range.value = 175;
-        $range.max = 350;
+        widthConfig(350);
     } else {
-        $range.value = 200;
-        $range.max = 400;
+        widthConfig(400);
     }
+}
 
-});
+addEventListenerAll(window, "load resize", verifyWidth);
 
-$range.addEventListener('input', widthConfig);
+$range.addEventListener('input', verifyWidth);
