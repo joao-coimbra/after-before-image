@@ -25,28 +25,28 @@ body {
 #page div.image {
   position: absolute;
   left: 50%;
-  transform: translateX(-175px);
-  width: 350px;
-  height: 350px;
+  transform: translateX(-200px);
+  width: 400px;
+  height: 400px;
   overflow: hidden;
   z-index: 1;
 }
 #page div.image img {
-  width: 350px;
-  height: 350px;
+  width: 400px;
+  height: 400px;
   object-fit: cover;
 }
 #page > img {
-  width: 350px;
-  height: 350px;
+  width: 400px;
+  height: 400px;
   object-fit: cover;
   position: absolute;
 }
 #page input[type=range] {
   -webkit-appearance: none;
   outline: none;
-  width: 365px;
-  transform: translateY(175px);
+  width: 415px;
+  transform: translateY(200px);
   z-index: 1;
   cursor: pointer;
 }
@@ -60,6 +60,26 @@ body {
 }
 #page input[type=range]::-webkit-slider-runnable-track {
   height: 0;
+}
+
+@media (max-width: 480px) {
+  #page div.image {
+    transform: translateX(-175px);
+    width: 350px;
+    height: 350px;
+  }
+  #page div.image img {
+    width: 350px;
+    height: 350px;
+  }
+  #page > img {
+    width: 350px;
+    height: 350px;
+  }
+  #page input[type=range] {
+    width: 365px;
+    transform: translateY(175px);
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
